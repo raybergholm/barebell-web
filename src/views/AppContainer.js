@@ -48,7 +48,7 @@ const AppContainer = connect(
     actions: {
       ...dispatch
     }
-  }),
+  })
 )(createView(AppView, hooks))
 
 export default AppContainer
