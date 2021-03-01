@@ -19,7 +19,6 @@ const enhancer = compose(
 // create the store
 const store = createStore(
   rootReducer,
-  {},
   enhancer
 )
 

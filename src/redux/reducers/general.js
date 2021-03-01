@@ -3,11 +3,8 @@ import actionTypes from "../actionTypes/general"
 const initialState = {
   initialized: false,
   currentView: "home",
-
-  quickLinks: [],
-  archiveLinks: [],
-  tags: [],
-  config: {}
+  cache: null,
+  cacheSaved: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,8 +16,18 @@ const reducer = (state = initialState, action) => {
         initialized: true
       })
     case actionTypes.ChangeView:
+      window.location.href = `/${action.payload.newView}`
       return Object.assign({}, state, {
-        currentView: action.payload
+        currentView: action.payload.newView
+      })
+    case actionTypes.LoadedCache:
+      console.log("loaded cache, adding to store", action.payload.cache)
+      return Object.assign({}, state, {
+        cache: action.payload.cache
+      })
+    case actionTypes.SavedCache:
+      return Object.assign({}, state, {
+        cacheSaved: true
       })
     default:
       return state

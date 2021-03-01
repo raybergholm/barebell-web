@@ -9,9 +9,22 @@ const actionCreators = {
     type: actionTypes.InitializeEnd
   }),
 
-  changeView: (payload) => ({
+  changeView: (newView) => ({
     type: actionTypes.ChangeView,
-    payload
+    payload: {
+      newView
+    }
+  }),
+
+  loadedCache: (data) => ({
+    type: actionTypes.loadedCache,
+    payload: {
+      data
+    }
+  }),
+
+  savedCache: () => ({
+    type: actionTypes.SavedCache
   }),
 
   loadedMetadata: ({ quickLinks, archiveLinks, tags, config }) => {

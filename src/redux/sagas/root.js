@@ -5,11 +5,21 @@ import generalActionCreators from "../actionCreators/general"
 
 import generalActionTypes from "../actionTypes/general"
 
-import dataApi from "../../scripts/dataApi"
+import dataApi from "../../scripts/mockDataApi"
+import localCacheInterface from "../../scripts/localCacheInterface"
+
 
 const api = dataApi()
+const localCache = localCacheInterface()
 
 export function* initialize() {
+
+  const cache = localCache.loadCache()
+
+  yield put({
+    type: generalActionTypes.LoadedCache,
+    payload: { cache }
+  })
   yield put({
     type: generalActionTypes.InitializeEnd
   })
