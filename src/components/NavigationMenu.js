@@ -8,6 +8,8 @@ import FitnessCenterIcon from "@material-ui/icons/FitnessCenter"
 import AssessmentIcon from "@material-ui/icons/Assessment"
 import MenuIcon from "@material-ui/icons/Menu"
 
+import { VIEW_LIST } from "../models/appModels"
+
 const stickToBottom = {
   // width: "100%",
   // position: "fixed",
@@ -24,11 +26,11 @@ const NavigationMenu = ({ actions, currentView, textLabels }) => (
     showLabels
     style={stickToBottom}
   >
-    <BottomNavigationAction label={textLabels.Home} value="home" icon={<HomeIcon />} />
-    <BottomNavigationAction label={textLabels.Programs} value="programs" icon={<MenuBookIcon />} />
-    <BottomNavigationAction label={textLabels.Workout} value="workout" icon={<FitnessCenterIcon />} />
-    <BottomNavigationAction label={textLabels.Stats} value="stats" icon={<AssessmentIcon />} />
-    <BottomNavigationAction label={textLabels.More} value="more" icon={<MenuIcon />} />
+    <BottomNavigationAction label={textLabels.Home} key={VIEW_LIST.Home} value={VIEW_LIST.Home} icon={<HomeIcon />} />
+    <BottomNavigationAction label={textLabels.Programs} key={VIEW_LIST.Programs} value={VIEW_LIST.Programs} icon={<MenuBookIcon />} />
+    <BottomNavigationAction label={textLabels.Workout} key={VIEW_LIST.Workout} value={VIEW_LIST.Workout} icon={<FitnessCenterIcon />} />
+    <BottomNavigationAction label={textLabels.Stats} key={VIEW_LIST.Stats} value={VIEW_LIST.Stats} icon={<AssessmentIcon />} />
+    <BottomNavigationAction label={textLabels.More} key={VIEW_LIST.Options} value={VIEW_LIST.Options} icon={<MenuIcon />} />
   </BottomNavigation>
 )
 

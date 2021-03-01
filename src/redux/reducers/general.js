@@ -1,8 +1,10 @@
 import actionTypes from "../actionTypes/general"
 
+import { VIEW_LIST } from "../../models/appModels"
+
 const initialState = {
   initialized: false,
-  currentView: "home",
+  currentView: VIEW_LIST.Home,
   cache: null,
   cacheSaved: false
 }
@@ -16,7 +18,8 @@ const reducer = (state = initialState, action) => {
         initialized: true
       })
     case actionTypes.ChangeView:
-      window.location.href = `/${action.payload.newView}`
+      console.log(`change view payload: ${action.payload.newView}`)
+      // window.location.href = `/${action.payload.newView}`
       return Object.assign({}, state, {
         currentView: action.payload.newView
       })
