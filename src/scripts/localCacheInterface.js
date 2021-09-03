@@ -6,22 +6,6 @@ const isLocalStorageSupported = () => {
   }
 }
 
-const upload = JSON.stringify({
-  programs: [ new Date(), [
-    {
-      _id: 0,
-      name: "5x5 Stronglifts"
-    },
-    {
-      _id: 1,
-      name: "5-3-1 Classic"
-    }
-  ] ],
-  lastSession: [ new Date(), null ]
-})
-
-localStorage.setItem("barebellCache", upload)
-
 const localCacheInterface = (ignoreCacheRefresh=false) => {
   if (!isLocalStorageSupported()) {
     console.error("localStorage not supported on this browser!")

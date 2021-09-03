@@ -5,8 +5,10 @@ import WorkoutSessionView from "./WorkoutSessionView"
 
 const WorkoutSessionContainer = connect(
   (state) => ({
-    dummyProp1: "",
-    dummyProp2: ""
+    flags: state.workout.flags,
+    errors: state.workout.errors,
+    exercises: state.workout.exercises,
+    activeWorkout: state.workout.activeWorkout
   }),
   (dispatch, ownProps) => ({
   })

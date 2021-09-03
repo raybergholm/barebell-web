@@ -13,7 +13,6 @@ const api = dataApi()
 const localCache = localCacheInterface()
 
 export function* initialize() {
-
   const cache = localCache.loadCache()
 
   yield put({
@@ -27,6 +26,11 @@ export function* initialize() {
 
 export function* endInit() {
   console.log("initialization sequence finished")
+  yield true
+}
+
+export function* saveCache() {
+  localCache.updateCache()
   yield true
 }
 
